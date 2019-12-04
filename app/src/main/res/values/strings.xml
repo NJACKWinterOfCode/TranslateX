@@ -7,6 +7,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string-array name="input_language">
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="output_language">
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>

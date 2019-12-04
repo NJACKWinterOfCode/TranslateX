@@ -23,6 +23,8 @@ import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import io.github.njackwinterofcode.translatex.R;
 
@@ -45,20 +47,34 @@ public class HomeFragment extends Fragment {
                 translateX(textToTranslate.getEditText().getText().toString());
             }
         });
-        final TextView textView = root.findViewById(R.id.text_home);
+       /* final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
+        // spinner object
+        Spinner spinner1 = (Spinner) root.findViewById(R.id.spinner1);
+        Spinner spinner2 = (Spinner) root.findViewById(R.id.spinner2);
+//       //Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext (),
+                R.array.input_language, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext (),
+                R.array.output_language, android.R.layout.simple_spinner_item);
+//      //Specify the layout to use when the list of choices appears
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//       //Apply the adapter to the spinner
+        spinner1.setAdapter(adapter1);
+        spinner2.setAdapter(adapter2);
         return root;
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     public void translateX(final String str) {
