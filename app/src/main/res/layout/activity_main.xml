@@ -22,4 +22,11 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
+     <Button
+         android:id="@+id/SignOut"
+         android:enabled="false"
+         android:text="Sign Out"
+         android:textSize="20sp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />
 </androidx.drawerlayout.widget.DrawerLayout>
