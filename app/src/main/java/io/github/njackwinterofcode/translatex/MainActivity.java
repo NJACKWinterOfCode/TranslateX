@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
         providers = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder().build()
+                new AuthUI.IdpConfig.FacebookBuilder().build(),
+                new AuthUI.IdpConfig.AnonymousBuilder().build()
         );
         showSignInOptions();
 
@@ -116,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if(resultCode == RESULT_OK){
-                FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
-                Toast.makeText(MainActivity.this, "Hi "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Log-in Successful", Toast.LENGTH_SHORT).show();
                 SignOut.setEnabled(true);
             }
             else{
